@@ -6,11 +6,15 @@ Static source for Benjamin Ho's personal website and the book *Why Trust Matters
 
 - `index.html` — modern homepage
 - `original.html` — preserved legacy homepage with a switch back to the modern version
+- `academic/index.html` — modern academic profile with the complete publication archive
+- `academic/original.html` — preserved Vassar academic page with a switch back to the modern version
+- `academic/files/` — current CV and locally archived research papers
 - `art.html` — interactive 2009 art criticism engine
 - `picturecredits.html` — retired picture gallery and credits
 - `assets/legacy/` — images copied from the Hostinger site
 - `assets/site.css` and `assets/site.js` — modern presentation and progressive behavior
 - `CNAME` — primary GitHub Pages custom domain (`benho.org`)
+- `redirect-vassar/` — ready-to-upload redirect page and server-rule examples for the former Vassar URL
 
 ## Local preview
 
