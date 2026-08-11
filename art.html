@@ -1,0 +1,294 @@
+<html>
+<head>
+<script type="text/javascript">
+
+var hasInnerText = true;
+var runbanner = false;
+var t;
+var sText = "blah blah blah";
+var i=100000;
+var oldRed = 1;
+var oldGreen = 1;
+var oldBlue = 1;
+var delRed = 1;
+var delGreen = 1;
+var delBlue = 1;
+var delBackRed = 1;
+var delBackGreen = 1;
+var delBackBlue = 1;
+var backRed = 255;
+var backGreen = 255;
+var backBlue = 255;
+var backTime = 0;
+
+var lastX = 0;
+var lastY = 0;
+
+var synNum = 0;
+
+var artBStest= new Array(
+"[test|blah|goo] farg so dead",
+"another [b1|b2] fishy[?|.]");
+
+var artBS = new Array(
+"[Yet|However,] this work engages the complicity of the [observer|viewer|consumer] both through observation, but also creation.",
+"Still, it feeds the [narcissism|vanity] and the artists’ unquenchable [hunger|thirst] for attention.",
+"At the same time, it emphasizes the [vapidity|vacuity] of art critique.",
+"[And so|However], it demonstrates the power and compactness and the poetic economy of the buzzword.",
+"This [piece|media] is art not only in terms of its aesthetic value and its craft, but also due to its contextual frame, and the artists own declamation[.|!]",
+"[Therefore|And so], the combinatorial expansion of infinite possibility means the same sequence will never be observed in the life of the [observer|viewer|consumer].",
+"This [materializes|creates|instantiates] a near infinite lifespan which gives more power to the Shakespearean dyad, so long as eyes can see and men can breathe.",
+"It is also [important|crucial|imperative] to consider the use of the tactile interface which connects the observer with the randomness as well.",
+"The [illusion|mystery] of randomness coupled with the illusion of control confronts the [observer|viewer|consumer] with the paradox of free-will and the inevitability of determinism.",
+"Though in sum, the [artifact|piece] lets the [observer|viewer|consumer] discover that the bullshit is the art.",
+"Hopefully, this [generates|instantiates] in the [observer|viewer|consumer] an epiphanic catharsis of self revelation.",
+"Note also, that the infinite regress suggests the eternal golden braid of [an infinite moebius strip|a Klein bottle].",
+"This is especially [relevent|portentious|eminent] since the random juxtaposition of memes allows the exploration of serendipity[.|!]",
+"[Note also|It should be noted] that [color|form] serves as a guide for [memetic creation|meaning|ideation].",
+"Infinite [regress|expansion|bullshit] is coupled with the pop cultural icons of Doogie Howser.",
+"This is coupled with a [singular|plain] color field that suggests typography or alternatively infinity.",
+"[As a result|Therefore], the writing suggests the epitome of mental masturbation.",
+"[One|A critic|All those] might argue that this expression of art by the [hoi-polloi|bourgeois] represents the apotheosis of the Warholian sense of pop culture.",
+"Taken together, the [oeuvre|piece|cultural artifact] represents art as meta-narrative[.|!]",
+"The interaction of the [observer|viewer|consumer] thus [breaks|shatters|imperils] the fourth wall and invites the tacit complicity in this aesthetic game.",
+"One cannot help but be confronted with the [importance|import|essentiality] of craft in conceptual artistic narrative[.|!]",
+"There is also a [Marxist|post-structuralist] emphasis that critique is a bourgeois affectation.",
+"In so doing, the piece [considers|renders|rends] the social theoretical nature of its own existence, and whether art can have a consciousness in and of itself.",
+"The consumption of the meta-art also [highlights|reiterates] notions of Bourdieu and the cultural capital associated with taste.",
+"This [notionalization|ideation|conception], coupled with [Fruedian|Jungian] psycho-analysis, demonstrates eternal value statements.",
+"But the [observer|viewer|consumer] is [pulled|drawn] into a game theoretic construct between designer and interpretation, as it competes for attention with other artists/agents/actors.",
+"As a result, the artist generates demand for a novel cultural artifact.",
+"Note that this [insists|depends] upon the breaking of the fourth dimension, directly referencing the conceptual movement of the 70’s.",
+"There is [still|also] a sense of Dada self reflexivity, that hearkens back to Duchamp’s Fountain.",
+"Altogether, this suggests that art [criticism|analysis|intellectualization] is little more than mental masturbation.",
+"This also allows the exploration of art as [language|memetic conveyer], as means of expression.",
+"We consider a representation of the [infinite|a-finite] nature of Bull Shit.",
+"In sum, this [work|oeuvre|cultural artifact] represents the [novel|new] exploration of the anti-meta: Whereas meta-art is about-art, anti-meta art is about-art as art.",
+"In so doing, the art apotheosizes the life of the mind.",
+"Though a similar achievement in a purer form is Sol Dewitt, who championed directions as art.",
+"One might [observe|note] the careful interspersion of conjunctive phrases provides a sense of continuity.",
+"The art represents a careful synthesis, of critique, and meta-art, and bull-shit analysis along the vein of HG Frankfurt’s seminal discourse.",
+"This echoes the art of Renee Cox who utilizes elephant dung on a canvas of Jesus to elevate Shit to spiritual heights.",
+"...");
+
+
+var curBS = 1000000;
+
+function parseBS(sArg)
+{
+	var retStr;
+	var wordlist = new Array();
+	var s = sArg;
+
+	var start = s.indexOf("[");
+	var stop = s.indexOf("]");
+
+
+	if( start < 0 | stop < 0 ) return s;
+
+
+	var cur = start+1;
+	var next;
+
+	while( (next = s.indexOf("|",cur )) > 0 )
+	{
+		if( next > stop ) break;
+		wordlist.push( s.substring(cur,next));
+		cur = next+1;
+	}
+	wordlist.push( s.substring(cur,stop));
+
+		//return(wordlist[0]);
+
+	//retStr = "In: " + s.indexOf("|",11) + ": " + s;
+	retStr = s.substring(0,start)
+		+wordlist[(synNum+start) % wordlist.length]
+		+s.substring(stop+1,s.length);
+
+	//return ":" + synNum;
+
+
+	return parseBS(retStr );
+}
+
+function getBS()
+{
+	if(curBS<artBS.length)
+	{
+	}
+	else
+	{
+		if( synNum == 0 ) synNum = getRand(3);
+		synNum++;
+		var n =0;
+		var tempStr = "tmp";
+		while( n < artBS.length )
+		{
+			swapTo = getRand(artBS.length);
+
+			tempStr = artBS[n];
+			artBS[n] = artBS[swapTo];
+			artBS[swapTo] = tempStr;
+
+			n++;
+		}
+		curBS = 0;
+	}
+	return parseBS(artBS[curBS++]);
+}
+
+
+
+function getRand(x)
+{
+	return Math.floor(Math.random()*x);
+}
+
+function rgb2html(red, green, blue)
+{
+    var decColor = red + 256 * green + 65536 * blue;
+    return decColor.toString(16);
+    //return decColor;
+}
+
+function changeBGdirect()
+{
+	if( !runbanner) return;
+
+	if( backRed > 240 ) delBackRed = -1;
+	if( backRed < 160 ) delBackRed = 1;
+	if( backGreen > 240 ) delBackGreen = -1;
+	if( backGreen < 160 ) delBackGreen = 1;
+	if( backBlue > 240 ) delBackBlue = -1;
+	if( backBlue < 160 ) delBackBlue = 1;
+
+	backRed = (backRed + delBackRed* getRand(12));
+	backGreen = (backGreen + delBackGreen * getRand(12));
+	backBlue = (backBlue + delBackBlue * getRand(12));
+	//document.bgColor= "rgb("+backRed+","+backGreen+","+backBlue+")";
+	document.getElementById("myBody").style.backgroundColor= "rgb("+backRed+","+backGreen+","+backBlue+")";
+
+	document.getElementById("myTicker").style.fontSize= parseInt(document.getElementById("myTicker").style.fontSize) + getRand(7)-3;
+
+}
+
+function changeBG(e)
+{
+	if( !runbanner) return;
+	var curDate = new Date();
+	nowTime = curDate.getTime();
+
+	if( (window.event.clientX -lastX > 0 || window.event.clientY - lastY > 0 ) && nowTime - backTime > 22)
+	{
+		changeBGdirect();
+
+	}
+	lastX = window.event.clientX;
+	lastY = window.event.clientY;
+
+	backTime = nowTime;
+
+	return;
+}
+
+function ticker()
+{
+
+	if( runbanner )
+	{
+
+		if(hasInnerText) document.getElementById("myButton").innerText = "Stop";
+		else document.getElementById("myButton").textContent = "Stop";
+
+		if( i >= sText.length )
+		{
+			sText = getBS();
+			i = 0;
+			changeBGdirect();
+		}
+
+		i+=1;
+		if(hasInnerText) document.getElementById("myTicker").innerText = sText.substring(0,i) + "_";
+		else document.getElementById("myTicker").textContent = sText.substring(0,i) + "_";
+
+
+
+		if( oldRed > 200 ) delRed = -1;
+		if( oldRed < 20 ) delRed = 1;
+		if( oldGreen > 200 ) delGreen = -1;
+		if( oldGreen < 20 ) delGreen = 1;
+		if( oldBlue > 200 ) delBlue = -1;
+		if( oldBlue < 20 ) delBlue = 1;
+
+		oldRed = (oldRed + delRed* getRand(10));
+		oldGreen = (oldGreen + delGreen * getRand(10));
+		oldBlue = (oldBlue + delBlue * getRand(10));
+
+		document.getElementById("myTicker").style.color = "rgb("+oldRed+","+oldGreen+","+oldBlue+")";
+
+		if( i >= sText.length )
+		{
+			window.setTimeout("ticker()",900);
+		}
+		else
+		{
+			window.setTimeout("ticker()",90);
+		}
+	}
+	else
+	{
+		if(hasInnerText) document.getElementById("myButton").innerText = "Go";
+		else document.getElementById("myButton").textContent = "Go";
+	}
+
+	return;
+}
+
+
+</script>
+</head>
+<body id="myBody" onkeydown="changeBGdirect();" >
+
+<script type="text/javascript">
+hasInnerText = (document.getElementsByTagName("body")[0].innerText != undefined) ? true : false;
+//document.write("<h1>This is a header</h1>");
+//document.write("<p>This is a paragraph</p>");
+//document.write("<p>This is another paragraph</p>");
+
+</script>
+
+<button id="myButton" onclick="runbanner = !runbanner; ticker()">Go</button>
+<hr>
+
+<table>
+<tr>
+<td>
+<p id="myTicker" style="font: 64pt/64pt fantasy; font-weight:normal; font-size: 64">
+Click the button to activate the art criticism engine. Hit any key once started to contribute to the dialectic. Thus begins the teleogical process.
+</p>
+</td>
+</tr>
+</table>
+
+<hr>
+<p style="font: 8pt/8pt Arial">
+(c) <a href="./">Ben Ho</a> 2009
+</p>
+
+<!--
+<form name="myform">
+<input type="text" size="52" name="mytext" style="color:white;  background color:black" >
+</form>
+-->
+
+
+
+<!--
+<a href="http://www.w3schools.com"
+onmouseover="alert('An onMouseOver event');return false">
+<img src="w3schools.gif" width="100" height="30">
+</a>
+-->
+
+</body>
+</html>

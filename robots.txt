@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://benho.org/sitemap.xml
