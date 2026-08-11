@@ -2,7 +2,7 @@
 
 The new canonical academic site is:
 
-`https://benho.org/academic/`
+`https://ho-ben.github.io/`
 
 For the best search-engine handoff, ask the Vassar web administrator to install the two permanent redirects in `.htaccess.example`. A server-side HTTP 301 is preferable because it preserves link equity and clearly marks the move as permanent.
 
