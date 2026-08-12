@@ -376,6 +376,40 @@ a {
   background: var(--ink);
 }
 
+.hero-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 16px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.hero-shortcuts > span {
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.hero-shortcuts a {
+  padding-block: 3px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.hero-shortcuts a:hover {
+  color: var(--white);
+  border-color: var(--cyan);
+}
+
+.hero-shortcuts .hero-shortcut-primary {
+  color: var(--cyan);
+  border-color: rgba(34, 211, 238, 0.6);
+}
+
 .review-callout {
   max-width: 620px;
   display: grid;
@@ -601,49 +635,6 @@ a {
   font-size: clamp(1.55rem, 2.6vw, 2.2rem);
   letter-spacing: -0.03em;
   line-height: 1.28;
-}
-
-.profile-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 34px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-}
-
-.profile-actions a {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 40px;
-  padding: 8px 13px;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
-}
-
-.profile-actions a:hover {
-  color: var(--white);
-  background: var(--navy);
-  border-color: var(--navy);
-  transform: translateY(-2px);
-}
-
-.profile-actions .profile-action-primary {
-  color: var(--white);
-  background: var(--navy);
-  border-color: var(--navy);
-}
-
-.profile-actions .profile-action-primary:hover {
-  background: var(--blue);
-  border-color: var(--blue);
 }
 
 .resources {
@@ -1210,10 +1201,19 @@ a {
     justify-content: center;
     gap: 9px;
     padding: 0 8px;
-    color: currentColor;
-    background: transparent;
-    border: 0;
+    color: var(--white);
+    background: rgba(6, 28, 43, 0.96);
+    border: 1px solid rgba(34, 211, 238, 0.72);
+    border-radius: 4px;
+    box-shadow: 0 5px 18px rgba(2, 15, 25, 0.2);
     cursor: pointer;
+  }
+
+  .menu-button:hover,
+  .menu-button[aria-expanded="true"] {
+    color: var(--navy-deep);
+    background: var(--cyan);
+    border-color: var(--cyan);
   }
 
   .menu-button-lines,
@@ -1453,6 +1453,30 @@ a {
     display: grid;
   }
 
+  .hero-shortcuts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .hero-shortcuts > span {
+    grid-column: 1 / -1;
+  }
+
+  .hero-shortcuts a {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 4px;
+  }
+
+  .hero-shortcuts .hero-shortcut-primary {
+    grid-column: 1 / -1;
+    border-color: rgba(34, 211, 238, 0.6);
+  }
+
   .book-stage {
     width: min(225px, 56vw);
   }
@@ -1496,20 +1520,6 @@ a {
   .portrait-card {
     max-width: 240px;
     margin-inline: auto;
-  }
-
-  .profile-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .profile-actions a {
-    justify-content: space-between;
-    border-radius: 4px;
-  }
-
-  .profile-actions .profile-action-primary {
-    grid-column: 1 / -1;
   }
 
   .purchase-panel {
