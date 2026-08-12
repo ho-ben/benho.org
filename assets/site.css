@@ -417,11 +417,6 @@ a {
   border-color: var(--cyan);
 }
 
-.hero-shortcuts .hero-shortcut-primary {
-  color: var(--cyan);
-  border-color: rgba(34, 211, 238, 0.6);
-}
-
 .review-callout {
   max-width: 620px;
   display: grid;
@@ -436,6 +431,10 @@ a {
   font-size: 13px;
   line-height: 1.45;
   text-decoration: none;
+}
+
+.review-callout + .hero-actions {
+  margin-top: 24px;
 }
 
 .review-kicker {
@@ -527,12 +526,21 @@ a {
   min-height: 70px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
+}
+
+.credentials-inner p {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .section {
@@ -1370,13 +1378,7 @@ a {
 
   .credentials-inner {
     min-height: auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     padding-block: 25px;
-  }
-
-  .credentials-inner span:last-child {
-    grid-column: 1 / -1;
   }
 
   .section {
@@ -1518,11 +1520,6 @@ a {
     border-radius: 4px;
   }
 
-  .hero-shortcuts .hero-shortcut-primary {
-    grid-column: 1 / -1;
-    border-color: rgba(34, 211, 238, 0.6);
-  }
-
   .book-stage {
     width: min(225px, 56vw);
   }
@@ -1555,12 +1552,23 @@ a {
   }
 
   .credentials-inner {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    width: 100%;
+    padding: 15px 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
 
-  .credentials-inner span:last-child {
-    grid-column: auto;
+  .credentials-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .credentials-inner p {
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
+    gap: 4px;
+    font-size: 7px;
+    letter-spacing: 0.05em;
   }
 
   .section-heading {
