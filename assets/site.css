@@ -41,6 +41,14 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.menu-open::before {
+  position: fixed;
+  content: "";
+  inset: 0;
+  z-index: 99;
+  background: var(--navy-deep);
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -312,6 +320,10 @@ a {
   text-wrap: balance;
 }
 
+.hero-mobile-book {
+  display: none;
+}
+
 .hero-deck {
   max-width: 650px;
   margin: 30px 0 0;
@@ -380,7 +392,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 7px 16px;
+  gap: 9px 18px;
   margin-top: 18px;
   color: rgba(255, 255, 255, 0.72);
   font-size: 11px;
@@ -394,7 +406,7 @@ a {
 }
 
 .hero-shortcuts a {
-  padding-block: 3px;
+  padding-block: 5px;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: color 160ms ease, border-color 160ms ease;
@@ -1193,6 +1205,15 @@ a {
     padding-inline: 18px;
   }
 
+  body.menu-open .site-header,
+  body.menu-open .site-header.is-scrolled {
+    color: var(--white);
+    background: var(--navy-deep);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
   .menu-button {
     min-width: 42px;
     height: 42px;
@@ -1278,6 +1299,11 @@ a {
     visibility: visible;
     opacity: 1;
     transform: none;
+    background-color: var(--navy-deep);
+    background-image: linear-gradient(var(--navy-deep), var(--navy-deep));
+    min-height: calc(100vh - 71px);
+    min-height: calc(100dvh - 71px);
+    isolation: isolate;
   }
 
   .site-nav a {
@@ -1446,7 +1472,27 @@ a {
   }
 
   .hero h1 {
-    font-size: clamp(3.2rem, 15vw, 4.5rem);
+    font-size: clamp(2.8rem, 12.5vw, 3.8rem);
+  }
+
+  .hero-title-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 88px;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .hero-mobile-book {
+    display: block;
+    margin-top: 5px;
+    background: #087da7;
+    box-shadow: 8px 12px 22px rgba(0, 0, 0, 0.35), -3px 0 0 #087da7;
+    transform: rotate(2deg);
+  }
+
+  .hero-mobile-book img {
+    width: 100%;
+    height: auto;
   }
 
   .hero-actions {
@@ -1456,8 +1502,8 @@ a {
   .hero-shortcuts {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    margin-top: 16px;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .hero-shortcuts > span {
@@ -1467,7 +1513,7 @@ a {
   .hero-shortcuts a {
     display: flex;
     justify-content: space-between;
-    padding: 8px 10px;
+    padding: 9px 12px;
     border: 1px solid rgba(255, 255, 255, 0.24);
     border-radius: 4px;
   }
@@ -1479,6 +1525,10 @@ a {
 
   .book-stage {
     width: min(225px, 56vw);
+  }
+
+  .hero-visual {
+    display: none;
   }
 
   .book-cover {
