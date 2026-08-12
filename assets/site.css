@@ -147,7 +147,7 @@ a {
   justify-content: center;
   gap: 26px;
   font-size: 14px;
-  font-weight: 650;
+  font-weight: 750;
 }
 
 .site-nav a {
@@ -162,7 +162,7 @@ a {
   right: 100%;
   bottom: -6px;
   height: 2px;
-  background: currentColor;
+  background: var(--cyan);
   transition: right 180ms ease;
 }
 
@@ -170,7 +170,7 @@ a {
   right: 0;
 }
 
-.nav-email {
+.nav-action {
   display: none;
 }
 
@@ -212,6 +212,13 @@ a {
 
 .menu-button {
   display: none;
+}
+
+.menu-button-label {
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .hero {
@@ -408,7 +415,7 @@ a {
 
 .book-stage {
   position: relative;
-  width: min(360px, 85%);
+  width: min(310px, 76%);
   display: grid;
   place-items: center;
 }
@@ -425,7 +432,7 @@ a {
 
 .book-cover {
   position: relative;
-  width: 77%;
+  width: 74%;
   transform: perspective(1000px) rotateY(-8deg) rotateX(3deg);
   box-shadow: 24px 34px 55px rgba(0, 0, 0, 0.38), -8px 0 0 #087da7;
   transition: transform 260ms ease, box-shadow 260ms ease;
@@ -525,6 +532,8 @@ a {
 }
 
 .portrait-card {
+  width: 100%;
+  max-width: 350px;
   margin: 0;
 }
 
@@ -550,6 +559,8 @@ a {
 }
 
 .portrait-frame img {
+  width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   filter: saturate(0.88) contrast(1.03);
@@ -590,6 +601,49 @@ a {
   font-size: clamp(1.55rem, 2.6vw, 2.2rem);
   letter-spacing: -0.03em;
   line-height: 1.28;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.profile-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 40px;
+  padding: 8px 13px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.profile-actions a:hover {
+  color: var(--white);
+  background: var(--navy);
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.profile-actions .profile-action-primary {
+  color: var(--white);
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.profile-actions .profile-action-primary:hover {
+  background: var(--blue);
+  border-color: var(--blue);
 }
 
 .resources {
@@ -709,6 +763,54 @@ a {
   letter-spacing: 0.08em;
   line-height: 1.45;
   text-transform: uppercase;
+}
+
+.purchase-panel {
+  max-width: 320px;
+  margin-top: 34px;
+}
+
+.purchase-panel > p {
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.purchase-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.purchase-links a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 11px;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.purchase-links a:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.purchase-links .purchase-link-primary {
+  color: var(--navy-deep);
+  background: var(--cream);
+  border-color: var(--cream);
 }
 
 .book-description p {
@@ -1101,11 +1203,13 @@ a {
   }
 
   .menu-button {
-    width: 42px;
+    min-width: 42px;
     height: 42px;
-    display: grid;
-    place-items: center;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 8px;
     color: currentColor;
     background: transparent;
     border: 0;
@@ -1159,9 +1263,9 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 10px;
-    padding: 30px 11vw;
+    justify-content: flex-start;
+    gap: 4px;
+    padding: clamp(28px, 8vh, 70px) 11vw 32px;
     color: var(--white);
     background: var(--navy-deep);
     visibility: hidden;
@@ -1177,9 +1281,35 @@ a {
   }
 
   .site-nav a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 7px;
     font-family: var(--serif);
-    font-size: 42px;
+    font-size: clamp(27px, 5vh, 40px);
     font-weight: 400;
+  }
+
+  .site-nav a::after {
+    display: none;
+  }
+
+  .site-nav .nav-action {
+    display: flex;
+    margin-top: 9px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .site-nav .nav-email {
+    color: var(--navy-deep);
+    background: var(--cyan);
+    border-color: var(--cyan);
   }
 
   .nav-email {
@@ -1209,7 +1339,7 @@ a {
   }
 
   .book-stage {
-    width: min(320px, 70vw);
+    width: min(260px, 58vw);
   }
 
   .credentials-inner {
@@ -1244,7 +1374,7 @@ a {
   }
 
   .portrait-card {
-    max-width: 500px;
+    max-width: 330px;
   }
 
   .resource-grid {
@@ -1311,7 +1441,8 @@ a {
   }
 
   .hero-inner {
-    padding-top: 125px;
+    gap: 50px;
+    padding-block: 125px 60px;
   }
 
   .hero h1 {
@@ -1320,6 +1451,20 @@ a {
 
   .hero-actions {
     display: grid;
+  }
+
+  .book-stage {
+    width: min(225px, 56vw);
+  }
+
+  .book-cover {
+    width: 72%;
+  }
+
+  .book-note {
+    width: 100%;
+    margin-top: 28px;
+    font-size: 9px;
   }
 
   .review-callout {
@@ -1346,6 +1491,29 @@ a {
 
   .section-heading {
     margin-bottom: 45px;
+  }
+
+  .portrait-card {
+    max-width: 240px;
+    margin-inline: auto;
+  }
+
+  .profile-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profile-actions a {
+    justify-content: space-between;
+    border-radius: 4px;
+  }
+
+  .profile-actions .profile-action-primary {
+    grid-column: 1 / -1;
+  }
+
+  .purchase-panel {
+    max-width: none;
   }
 
   .resource-grid {

@@ -45,15 +45,17 @@
 
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button>
       <span class="menu-button-lines" aria-hidden="true"></span>
-      <span class="sr-only">Menu</span>
+      <span class="menu-button-label">Menu</span>
     </button>
 
     <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
       <a href="#about">About</a>
       <a href="#book">Book</a>
+      <a href="#links">Links</a>
       <a href="#media">Media</a>
       <a href="#speaking">Speaking</a>
-      <a class="nav-email" href="mailto:benjaminho@gmail.com">Email</a>
+      <a class="nav-action nav-academic" href="https://ho-ben.github.io/">Academic site <span aria-hidden="true">↗</span></a>
+      <a class="nav-action nav-email" href="mailto:benjaminho@gmail.com">Email Ben <span aria-hidden="true">→</span></a>
     </nav>
 
     <div class="view-switch" aria-label="Website version">
@@ -74,7 +76,7 @@
           <h1 id="hero-title">Trust is the invisible architecture of society.</h1>
           <p class="hero-deck">Benjamin Ho studies how trust, identity, apologies, and incentives shape the choices we make—and the systems we build together.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://www.amazon.com/Why-Trust-Matters-Economists-Guide/dp/0231189605">Order the book <span aria-hidden="true">↗</span></a>
+            <a class="button button-primary" href="#book">Buy the book <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" href="#about">Meet Ben <span aria-hidden="true">↓</span></a>
           </div>
           <a class="review-callout" href="https://www.newyorker.com/magazine/2021/07/26/are-americans-more-trusting-than-they-seem">
@@ -125,11 +127,17 @@
           <p>Ho applies behavioral economics, game theory and experiments to tackle topics like apologies, identity, inequality and climate change. Before Vassar, he taught MBA students at Cornell—where he was selected as one of Poets' and Quants' “40 under 40”—served as lead energy economist at the White House Council of Economic Advisers, and worked or consulted for Morgan Stanley and several tech startups.</p>
           <p>Professor Ho is also a faculty affiliate for the Center for Global Energy Policy at Columbia University. His research has appeared in outlets like <em>Management Science</em> and <em>Nature Human Behaviour</em>.</p>
           <p>Ho holds seven degrees from Stanford and MIT in economics, education, political science, math, computer science and electrical engineering.</p>
+          <nav class="profile-actions" aria-label="Explore Benjamin Ho's work">
+            <a href="#links">Useful links <span aria-hidden="true">↓</span></a>
+            <a href="#media">Media <span aria-hidden="true">↓</span></a>
+            <a href="https://ho-ben.github.io/">Academic site <span aria-hidden="true">↗</span></a>
+            <a class="profile-action-primary" href="#speaking">Invite Ben to speak <span aria-hidden="true">↓</span></a>
+          </nav>
         </div>
       </div>
     </section>
 
-    <section class="section resources" aria-labelledby="resources-title">
+    <section class="section resources" id="links" aria-labelledby="resources-title">
       <div class="shell">
         <div class="section-heading section-heading-row reveal">
           <div>
@@ -185,7 +193,15 @@
           <p class="eyebrow eyebrow-light">The book</p>
           <h2 id="book-title">Why Trust Matters</h2>
           <p class="book-subtitle">An Economist's Guide to the Ties That Bind Us</p>
-          <a class="button button-light" href="https://amzn.to/42t1PKT">Order now <span aria-hidden="true">↗</span></a>
+          <div class="purchase-panel" aria-label="Purchase Why Trust Matters">
+            <p>Choose a bookseller</p>
+            <div class="purchase-links">
+              <a class="purchase-link-primary" href="https://cup.columbia.edu/book/why-trust-matters/9780231189613/">Publisher <span aria-hidden="true">↗</span></a>
+              <a href="https://amzn.to/42t1PKT">Amazon <span aria-hidden="true">↗</span></a>
+              <a href="https://bookshop.org/search?keywords=9780231189613">Bookshop.org <span aria-hidden="true">↗</span></a>
+              <a href="https://www.indiebound.org/indie-store-finder">Local bookstore <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
         </div>
         <div class="book-description reveal" data-delay="1">
           <p class="lead">Have economists neglected trust? The economy is fundamentally a network of relationships built on mutual expectations. More than that, trust is the glue that holds civilization together.</p>
